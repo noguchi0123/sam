@@ -5,3 +5,6 @@ machine:
 test:
     sam-local invoke -e event.json HelloWorld
 
+deployment:
+    master:
+        branch master:
