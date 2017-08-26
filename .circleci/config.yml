@@ -8,6 +8,7 @@ jobs:
     docker:
       # specify the version you desire here
       - image: node:4.3
+      - image: docker image name
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
