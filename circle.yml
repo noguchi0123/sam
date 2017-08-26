@@ -1,0 +1,7 @@
+machine:
+    node:
+        version: 4.3
+
+test:
+    sam-local invoke -e event.json HelloWorld
+
