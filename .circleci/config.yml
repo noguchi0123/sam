@@ -27,7 +27,7 @@ jobs:
           # fallback to using the latest cache if no exact match is found
       #    - v1-dependencies-
 
-      - run: apt-get install -y curl
+      # - run: apt-get install -y curl
       - run: curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sh
       - run: apex version
 
