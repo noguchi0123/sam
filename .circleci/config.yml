@@ -2,10 +2,10 @@ version: 2
 jobs:
    build:
      docker:
-       - image: circleci/python:3.6
+       - image: circleci/node:4.3
      steps:
        - checkout
-       - run: echo "hello world"
+       - run: npm install aws-sam-local
 
 
 # # Jvascript Node CircleCI 2.0 configuration file
