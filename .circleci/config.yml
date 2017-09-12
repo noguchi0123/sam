@@ -2,25 +2,7 @@
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
-version:
-
-references:
-  workspace_root: &workspace_root
-    /tmp/workspace
-
-  working_directory: &working_directory
-    working_directory:
-      *workspace_root
-
-  attach_workspace: &attach_workspace
-    attach_workspace:
-      at: *workspace_root
-
-  persist_to_workspace: &persist_to_workspace
-    persist_to_workspace:
-      root: *workspace_root
-      paths:
-        - .
+version: 2
 jobs:
   build:
     working_directory: ~/sam
@@ -31,8 +13,9 @@ jobs:
   #   <<: *working_directory
     steps:
       - checkout
-      - run: curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sh
-      - run: apex version
+      - run: sudo pip install awscli
+      # - run: curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sh
+      # - run: apex version
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
