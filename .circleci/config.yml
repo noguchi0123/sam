@@ -5,10 +5,11 @@
 version: 2
 jobs:
   build:
+    working_directory: ~/
     docker:
       # specify the version you desire here
       - image: node:4.3
-      
+
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
@@ -26,15 +27,14 @@ jobs:
           # fallback to using the latest cache if no exact match is found
       #    - v1-dependencies-
 
-      - run: npm install aws-sam-local
+      - run: apt-get install -y curl
+      - run: curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sh
+      - run: apex version
 
       # - save_cache:
       #    paths:
       #      - node_modules
       #    key: v1-dependencies-{{ checksum "package.json" }}
-        
+
       # run tests!
       # - run: sam local invoke -e event.json HelloWorld
-
-
-
