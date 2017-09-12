@@ -29,7 +29,10 @@ jobs:
       - image: circleci/node:4
   test:
     <<: *working_directory
-
+    steps:
+      - checkout
+      - run: curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sh
+      - run: apex version
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
@@ -37,8 +40,8 @@ jobs:
 
     # working_directory: ~/
 
-    steps:
-      - checkout
+    # steps:
+    #   - checkout
 
       # Download and cache dependencies
       #- restore_cache:
@@ -48,8 +51,8 @@ jobs:
       #    - v1-dependencies-
 
       # - run: apt-get install -y curl
-      - run: curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sh
-      - run: apex version
+      # - run: curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sh
+      # - run: apex version
 
       # - save_cache:
       #    paths:
