@@ -27,8 +27,8 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/node:4
-  test:
-    <<: *working_directory
+  # test:
+  #   <<: *working_directory
     steps:
       - checkout
       - run: curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sh
