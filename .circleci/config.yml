@@ -2,13 +2,33 @@
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
-version: 2
+version:
+
+references:
+  workspace_root: &workspace_root
+    /tmp/workspace
+
+  working_directory: &working_directory
+    working_directory:
+      *workspace_root
+
+  attach_workspace: &attach_workspace
+    attach_workspace:
+      at: *workspace_root
+
+  persist_to_workspace: &persist_to_workspace
+    persist_to_workspace:
+      root: *workspace_root
+      paths:
+        - .
 jobs:
   build:
     working_directory: ~/sam
     docker:
       # specify the version you desire here
       - image: circleci/node:4
+  test:
+    <<: *working_directory
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
