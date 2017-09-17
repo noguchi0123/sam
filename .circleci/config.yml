@@ -16,6 +16,9 @@ jobs:
       - run:
           command: |
             pwd
+            echo "ok"
+            cd ~/sam
+            pwd
             sudo pip install awscli
             sudo apt-get install -y curl
             curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sudo sh
