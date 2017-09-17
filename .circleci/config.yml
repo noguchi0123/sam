@@ -5,7 +5,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/sam
+    # working_directory: ~/sam
     docker:
       # specify the version you desire here
       - image: circleci/python:3.6.1
@@ -14,6 +14,7 @@ jobs:
     steps:
       - checkout
       - run: sudo pip install awscli
+      - run: apt-get install -y curl
       - run: sudo curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sh
       - run: apex version
       # Specify service dependencies here if necessary
