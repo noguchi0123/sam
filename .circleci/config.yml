@@ -15,7 +15,7 @@ jobs:
       - checkout
       - run: sudo pip install awscli
       - run: sudo apt-get install -y curl
-      - run: sudo curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sh
+      - run: curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sudo sh
       - run: apex version
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
